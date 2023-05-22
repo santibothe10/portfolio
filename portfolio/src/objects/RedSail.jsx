@@ -1,5 +1,6 @@
 import { Html, useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
+import InfoMark from '../text/infoMark';
 
 export default function RedSail() {
 
@@ -23,15 +24,7 @@ export default function RedSail() {
           scale={0.015}
           dispose={null}
         />
-        <Html
-          position={ [ 0, 2, 2 ] }
-          wrapperClass="label"
-          center
-          distanceFactor={ 50 }
-          occlude
-        >
-          !
-        </Html>
+        <InfoMark infoPosition={[ -1.5, 2.5, -.75 ]} />
       </mesh>
     </>
   )

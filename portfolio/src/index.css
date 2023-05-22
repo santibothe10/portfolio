@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 body {
   margin: 0;
@@ -9,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -23,17 +21,28 @@ html, body, #root, #root > div {
   left: 0;
   top: 0;
   overflow: hidden;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+}
+
+::-webkit-scrollbar {
+  background-color: #f1f5f900;
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #064e3b80;
+  border-radius: 1rem;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 #root > div {
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 Canvas {
-  background-image: linear-gradient(#F5EDCE, #89C4E1, #89C4E1);
+  background-image: linear-gradient(#347EBF, #89C4E1, #89C4E1);
 }

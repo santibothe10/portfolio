@@ -1,5 +1,6 @@
 import { Html , useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
+import InfoMark from '../text/infoMark';
 
 export default function Hologram() {
 
@@ -22,15 +23,7 @@ export default function Hologram() {
           object={hologram.scene}
           scale={.05}
         />
-      <Html
-          position={ [ 0, 3.5, 0 ] }
-          wrapperClass="label"
-          center
-          distanceFactor={ 50 }
-          occlude
-      >
-          !
-      </Html>
+      <InfoMark infoPosition={[ 0, 3.5, 0 ]} />
       </mesh>
     </>
   )

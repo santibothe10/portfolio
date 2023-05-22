@@ -8,16 +8,16 @@ function App() {
   return (
     <>
       <Canvas camera={{
-        fov: 50,
-        near: 0.1,
-        far: 500,
-        position: [ 0, 20, 50 ],
-      }}>
-      <Suspense>
-        <World />
-      </Suspense>
+          fov: 50,
+          near: 0.1,
+          far: 500,
+          position: [ 0, 20, 50 ],
+        }}>
+        <Suspense>
+          <World />
+        </Suspense>
       </Canvas>
-      </>
+    </>
   );
 }
 

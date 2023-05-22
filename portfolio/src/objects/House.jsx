@@ -1,5 +1,6 @@
 import { Html, useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
+import InfoMark from '../text/infoMark';
 
 export default function House() {
 
@@ -22,15 +23,7 @@ export default function House() {
           object={house.scene}
           scale={2}
         />
-        <Html
-          position={ [ -1.25, 1, 2 ] }
-          wrapperClass="label"
-          center
-          distanceFactor={ 50 }
-          occlude
-      >
-          !
-      </Html>
+      <InfoMark infoPosition={[ -1.25, 1, 2 ]} />
       </mesh>
     </>
   )

@@ -1,5 +1,6 @@
 import { Html, useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
+import InfoMark from '../text/infoMark';
 
 export default function SeaPlane() {
 
@@ -22,15 +23,7 @@ export default function SeaPlane() {
           object={seaPlane.scene}
           scale={0.02}
         />
-        <Html
-          position={ [ -1.5, 2.5, -.75 ] }
-          wrapperClass="label"
-          center
-          distanceFactor={ 50 }
-          occlude
-        >
-          !
-        </Html>
+        <InfoMark infoPosition={[ -1.5, 2.5, -.75 ]} />
       </mesh>
     </>
   )
