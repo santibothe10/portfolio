@@ -1,5 +1,5 @@
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 import Island from './objects/Island'
 import House from './objects/House'
@@ -14,6 +14,7 @@ import TugBoat from './objects/TugBoat'
 import BaseCard from './text/baseCard'
 
 export default function World() {
+  const [cardIsVisible, setCardIsVisible] = useState(false)
 
 
   return (
@@ -31,15 +32,15 @@ export default function World() {
 
       <group position={[0, -5, 0]}>
         <Island />
-        <House />
-        <RedSail />
-        <SeaPlane />
+        <House setCardIsVisible={setCardIsVisible}/>
+        <RedSail setCardIsVisible={setCardIsVisible}/>
+        <SeaPlane setCardIsVisible={setCardIsVisible}/>
         <Clouds />
-        <Hologram />
+        <Hologram setCardIsVisible={setCardIsVisible}/>
 
       </group>
 
-      <BaseCard />
+      {cardIsVisible && <BaseCard setCardIsVisible={setCardIsVisible}/>}
   </>
   )
 }

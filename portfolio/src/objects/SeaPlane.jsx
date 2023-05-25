@@ -2,7 +2,7 @@ import { Html, useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
 import InfoMark from '../text/infoMark';
 
-export default function SeaPlane() {
+export default function SeaPlane({setCardIsVisible}) {
 
   const seaPlane = useGLTF("./3d-models/sea-plane/scene.gltf")
   const { seaPlanePos, seaPlaneRot } = useControls({
@@ -23,7 +23,7 @@ export default function SeaPlane() {
           object={seaPlane.scene}
           scale={0.02}
         />
-        <InfoMark infoPosition={[ -1.5, 2.5, -.75 ]} />
+        <InfoMark infoPosition={[ -1.5, 2.5, -.75 ]} setCardIsVisible={setCardIsVisible}/>
       </mesh>
     </>
   )

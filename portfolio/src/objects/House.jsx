@@ -2,7 +2,7 @@ import { Html, useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
 import InfoMark from '../text/infoMark';
 
-export default function House() {
+export default function House({setCardIsVisible}) {
 
   const house = useGLTF("./3d-models/house/scene.gltf")
   const { housePos, houseRot } = useControls({
@@ -23,7 +23,7 @@ export default function House() {
           object={house.scene}
           scale={2}
         />
-      <InfoMark infoPosition={[ -1.25, 1, 2 ]} />
+      <InfoMark infoPosition={[ -1.25, 1, 2 ]} setCardIsVisible={setCardIsVisible}/>
       </mesh>
     </>
   )

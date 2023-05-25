@@ -1,10 +1,12 @@
 import { Html } from "@react-three/drei";
 
-export default function InfoMark({infoPosition}) {
+export default function InfoMark({infoPosition, setCardIsVisible}) {
 
   const clickInfoMark = () => {
     console.log("i was clicked")
+    setCardIsVisible(true)
   }
+
 
   return (
       <Html
