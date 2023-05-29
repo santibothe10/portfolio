@@ -29,8 +29,9 @@ html, body, #root, #root > div {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #064e3b80;
+  /* background: #064e3b80; */
   border-radius: 1rem;
+  background: #f8fafc;
 }
 
 * {

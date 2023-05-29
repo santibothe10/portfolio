@@ -2,12 +2,18 @@ import './App.css';
 import { Canvas } from "@react-three/fiber";
 import World from './World';
 import { Suspense } from 'react';
-import { Loader } from '@react-three/drei';
+import {ResizeObserver} from "@juggle/resize-observer"
+import HouseCard from './text/HouseCard';
 
 function App() {
   return (
     <>
-      <Canvas camera={{
+    {/* <div className='flex justify-center'>
+      <HouseCard />
+    </div> */}
+      <Canvas
+          resize={{polyfill: ResizeObserver}}
+          camera={{
           fov: 50,
           near: 0.1,
           far: 500,

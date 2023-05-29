@@ -1,8 +1,15 @@
-import { Html , useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
 import InfoMark from '../text/infoMark';
 
-export default function Hologram({setCardIsVisible}) {
+import HoloCard from '../text/HoloCard';
+
+export default function Hologram({
+  setCardIsVisible,
+  setContent,
+  setInfoIsVisible,
+  infoIsVisible
+}) {
 
   const hologram = useGLTF("./3d-models/hologram/scene.gltf")
   const { hologramPos, hologramRot } = useControls({
@@ -23,7 +30,14 @@ export default function Hologram({setCardIsVisible}) {
           object={hologram.scene}
           scale={.05}
         />
-      <InfoMark infoPosition={[ 0, 3.5, 0 ]} setCardIsVisible={setCardIsVisible}/>
+      <InfoMark
+      infoPosition={[ 0, 3.5, 0 ]}
+      setCardIsVisible={setCardIsVisible}
+      content={<HoloCard />}
+      setContent={setContent}
+      setInfoIsVisible={setInfoIsVisible}
+      infoIsVisible={infoIsVisible}
+      />
       </mesh>
     </>
   )

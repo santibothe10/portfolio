@@ -1,21 +1,24 @@
-import { PerspectiveCamera, OrbitControls } from '@react-three/drei'
-import { useRef, useState } from 'react'
+import { OrbitControls } from '@react-three/drei'
+import { useState } from 'react'
 
 import Island from './objects/Island'
 import House from './objects/House'
 import RedSail from './objects/RedSail'
 import SeaPlane from './objects/SeaPlane'
 import Clouds from './objects/Clouds'
-import Zeplin from './objects/Zeplin'
 import Hologram from './objects/Hologram'
+import Zeplin from './objects/Zeplin'
 import Orca from './objects/Orca'
 import TugBoat from './objects/TugBoat'
+
 
 import BaseCard from './text/baseCard'
 
 export default function World() {
-  const [cardIsVisible, setCardIsVisible] = useState(false)
 
+  const [cardIsVisible, setCardIsVisible] = useState(false)
+  const [infoIsVisible, setInfoIsVisible] = useState(true)
+  const [content, setContent] = useState(null)
 
   return (
     <>
@@ -32,15 +35,42 @@ export default function World() {
 
       <group position={[0, -5, 0]}>
         <Island />
-        <House setCardIsVisible={setCardIsVisible}/>
-        <RedSail setCardIsVisible={setCardIsVisible}/>
-        <SeaPlane setCardIsVisible={setCardIsVisible}/>
         <Clouds />
-        <Hologram setCardIsVisible={setCardIsVisible}/>
+        {/* <Zeplin />
+        <Orca />
+        <TugBoat /> */}
+        <House
+          setCardIsVisible={setCardIsVisible}
+          setContent={setContent}
+          setInfoIsVisible={setInfoIsVisible}
+          infoIsVisible={infoIsVisible}
+        />
+        <RedSail
+          setCardIsVisible={setCardIsVisible}
+          setContent={setContent}
+          setInfoIsVisible={setInfoIsVisible}
+          infoIsVisible={infoIsVisible}
+        />
+        <SeaPlane
+          setCardIsVisible={setCardIsVisible}
+          setContent={setContent}
+          setInfoIsVisible={setInfoIsVisible}
+          infoIsVisible={infoIsVisible}
+        />
+        <Hologram
+          setCardIsVisible={setCardIsVisible}
+          setContent={setContent}
+          setInfoIsVisible={setInfoIsVisible}
+          infoIsVisible={infoIsVisible}
+        />
 
       </group>
 
-      {cardIsVisible && <BaseCard setCardIsVisible={setCardIsVisible}/>}
+      {cardIsVisible && <BaseCard
+        setCardIsVisible={setCardIsVisible}
+        content={content}
+        setInfoIsVisible={setInfoIsVisible}
+        />}
   </>
   )
 }

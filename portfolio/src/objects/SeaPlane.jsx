@@ -1,8 +1,15 @@
-import { Html, useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
 import InfoMark from '../text/infoMark';
 
-export default function SeaPlane({setCardIsVisible}) {
+import PlaneCard from '../text/PlaneCard';
+
+export default function SeaPlane({
+  setCardIsVisible,
+  setContent,
+  setInfoIsVisible,
+  infoIsVisible
+}) {
 
   const seaPlane = useGLTF("./3d-models/sea-plane/scene.gltf")
   const { seaPlanePos, seaPlaneRot } = useControls({
@@ -23,7 +30,14 @@ export default function SeaPlane({setCardIsVisible}) {
           object={seaPlane.scene}
           scale={0.02}
         />
-        <InfoMark infoPosition={[ -1.5, 2.5, -.75 ]} setCardIsVisible={setCardIsVisible}/>
+        <InfoMark
+          infoPosition={[ -1.5, 2.5, -.75 ]}
+          setCardIsVisible={setCardIsVisible}
+          content={<PlaneCard />}
+          setContent={setContent}
+          setInfoIsVisible={setInfoIsVisible}
+          infoIsVisible={infoIsVisible}
+          />
       </mesh>
     </>
   )

@@ -1,8 +1,15 @@
-import { Html, useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { useControls } from 'leva';
 import InfoMark from '../text/infoMark';
 
-export default function House({setCardIsVisible}) {
+import HouseCard from '../text/HouseCard';
+
+export default function House({
+  setCardIsVisible,
+  setContent,
+  setInfoIsVisible,
+  infoIsVisible
+}) {
 
   const house = useGLTF("./3d-models/house/scene.gltf")
   const { housePos, houseRot } = useControls({
@@ -23,7 +30,14 @@ export default function House({setCardIsVisible}) {
           object={house.scene}
           scale={2}
         />
-      <InfoMark infoPosition={[ -1.25, 1, 2 ]} setCardIsVisible={setCardIsVisible}/>
+      <InfoMark
+      infoPosition={[ -1.25, 1, 2 ]}
+      setCardIsVisible={setCardIsVisible}
+      content={<HouseCard />}
+      setContent={setContent}
+      setInfoIsVisible={setInfoIsVisible}
+      infoIsVisible={infoIsVisible}
+      />
       </mesh>
     </>
   )
