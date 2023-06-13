@@ -60,16 +60,16 @@ export default function House({
           setCamPosition={setCamPosition}
           cam={houseCam}
         />
-        <Html
+        {/* <Html
           occlude
           position={screenPos}
           rotation={screenRot}
           transform
+          prepend
           scale={.07}
         >
-
-          <iframe width="1000px" height="600px" src="https://santibothe10.github.io/study-sessions/#/clock"></iframe>
-        </Html>
+          <iframe title="sessions" width="1000px" height="600px" src="https://santibothe10.github.io/study-sessions/#/clock"/>
+        </Html> */}
       </mesh>
     </>
   )
