@@ -1,44 +1,66 @@
-import { useGLTF } from '@react-three/drei'
-import { useControls } from 'leva';
-import InfoMark from '../text/infoMark';
+import { useGLTF, Html } from "@react-three/drei";
+import { useControls } from "leva";
+import InfoMark from "../text/infoMark";
 
-import HoloCard from '../text/HoloCard';
+import HoloCard from "../text/HoloCard";
+import StartBoard from "../text/html-projects/StartBoard";
 
 export default function Hologram({
   setCardIsVisible,
   setContent,
   setInfoIsVisible,
-  infoIsVisible
+  infoIsVisible,
+  setOrbitIsOn,
+  setCamPosition,
+  setStartView,
+  setLookAtPos
 }) {
+  const hologram = useGLTF("./3d-models/sign.glb");
 
-  const hologram = useGLTF("./3d-models/hologram/scene.gltf")
+  const holoCam = {x: -33.46, y: 26.54, z: -34.16};
+
   const { hologramPos, hologramRot } = useControls({
     hologramPos: {
-      value:[4, -1.85, 14.3],
-      step: .25
+      value: [-.75, -2.85, -20.5],
+      step: 0.25,
     },
     hologramRot: {
-      value: [0, 0.2, 0],
-      step: .05
-    }
-  })
+      value: [0, 2.95, 0],
+      step: 0.05,
+    },
+  });
 
   return (
     <>
       <mesh position={hologramPos} rotation={hologramRot}>
-        <primitive
-          object={hologram.scene}
-          scale={.05}
+        <primitive object={hologram.scene} scale={1} />
+        <InfoMark
+          infoPosition={[0, 3, 0]}
+          setCardIsVisible={setCardIsVisible}
+          content={<HoloCard />}
+          setContent={setContent}
+          setInfoIsVisible={setInfoIsVisible}
+          infoIsVisible={infoIsVisible}
+          setOrbitIsOn={setOrbitIsOn}
+          setCamPosition={setCamPosition}
+          cam={holoCam}
         />
-      <InfoMark
-      infoPosition={[ 0, 3.5, 0 ]}
-      setCardIsVisible={setCardIsVisible}
-      content={<HoloCard />}
-      setContent={setContent}
-      setInfoIsVisible={setInfoIsVisible}
-      infoIsVisible={infoIsVisible}
-      />
+        <Html
+        distanceFactor={ 4 }
+        transform
+        occlude
+        position={[0, -.25, .25]}
+        rotation={[0, 0, 0]}
+      >
+        <StartBoard
+          setStartView={setStartView}
+          setOrbitIsOn={setOrbitIsOn}
+          setLookAtPos={setLookAtPos}
+          setInfoIsVisible={setInfoIsVisible}
+        />
+      </Html>
+
       </mesh>
     </>
-  )
+  );
 }

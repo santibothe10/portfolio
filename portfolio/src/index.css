@@ -44,6 +44,11 @@ html, body, #root, #root > div {
   user-select: none;
 }
 
+
 Canvas {
-  background-image: linear-gradient(#347EBF, #89C4E1, #89C4E1);
+  pointer-events: none;
+  /* background-image: linear-gradient(#909b9e, #3b3b3b); */
+  background-image: linear-gradient(#121218, #28313c);
+  /* background-image: linear-gradient(#252D59, #223A59,#57568C,  #D9A19C); */
+
 }

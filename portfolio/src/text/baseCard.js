@@ -1,10 +1,16 @@
 import { Html } from "@react-three/drei";
 
-export default function BaseCard({setCardIsVisible, content, setInfoIsVisible}) {
+export default function BaseCard({
+  setCardIsVisible,
+  content,
+  setInfoIsVisible,
+  setOrbitIsOn
+}) {
 
   const handleExit = () => {
     setCardIsVisible(false)
     setInfoIsVisible(true)
+    setOrbitIsOn(true)
   }
 
   return (
@@ -12,6 +18,7 @@ export default function BaseCard({setCardIsVisible, content, setInfoIsVisible}) 
     <Html
         zIndexRange={[10, 0]}
         center
+        position={[0,0,0]}
       >
         <div
             className="relative animate-appear w-[20rem] sm:w-[22rem] md:w-[30rem]
@@ -42,10 +49,7 @@ export default function BaseCard({setCardIsVisible, content, setInfoIsVisible}) 
             </div>
             {content}
         </div>
-    </Html>
+      </Html>
     </>
   )
 }
-// "relative flex items-center justify-center w-10 h-10
-//                     hover:bg-gradient-to-r to-teal-500 from-cyan-500 bg-opacity-80 rounded-full
-//                     bg-gradient-to-r hover:to-cyan-400 hover:from-teal-400"

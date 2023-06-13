@@ -3,14 +3,14 @@ import { useControls } from 'leva';
 
 export default function Clouds() {
 
-  const clouds = useGLTF("./3d-models/clouds/scene.gltf")
+  const clouds = useGLTF("./3d-models/clouds.glb")
   const { cloudsPos, cloudsRot } = useControls({
     cloudsPos: {
-      value: [0.5, 16.40, 2],
+      value: [0, -3.6, 0],
       step: .25
     },
     cloudsRot: {
-      value: [0, 6.3, 0],
+      value: [0, 0, 0],
       step: .05
     }
   })
@@ -20,7 +20,7 @@ export default function Clouds() {
       <mesh position={cloudsPos} rotation={cloudsRot}>
         <primitive
           object={clouds.scene}
-          scale={.025}
+          scale={1}
         />
       </mesh>
     </>

@@ -21,15 +21,15 @@ export default function ProjectOne() {
           </div>
           </div>
           <p className="my-1 md:my-2 text-lg md:text-xl text-gray-500">
-            An e-commerce site featuring user authentication and a secure payment portal.
-            Employed Json Web Tokens, deployed cookies, and integrated the Stripe API.
+            An e-commerce site featuring user authentication and react state management.
+            Employed Json Web Tokens, deployed cookies, and worked as a valuable part of a team.
           </p>
           <p className="my-1 text-lg md:text-xl text-blue-500">
             <a
-              href="#"
-              // target="_blank"
+              href="https://whimz.gitlab.io/module3-project-gamma/"
+              target="_blank"
               className="mb-2">
-              Coming soon...
+              see more...
             </a>
           </p>
       </div>

@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Island() {
 
-  const island = useGLTF("./3d-models/island.gltf")
+  const island = useGLTF("./3d-models/islands.glb")
 
   return (
     <>

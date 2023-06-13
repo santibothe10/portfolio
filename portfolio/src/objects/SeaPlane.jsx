@@ -8,17 +8,22 @@ export default function SeaPlane({
   setCardIsVisible,
   setContent,
   setInfoIsVisible,
-  infoIsVisible
+  infoIsVisible,
+  setOrbitIsOn,
+  setCamPosition
 }) {
 
-  const seaPlane = useGLTF("./3d-models/sea-plane/scene.gltf")
+  const seaPlane = useGLTF("./3d-models/plane.glb")
+
+  const planeCam = {x: -1.25, y: 24.37, z: 24.34}
+
   const { seaPlanePos, seaPlaneRot } = useControls({
     seaPlanePos: {
-      value:[5, 14.15, 5.5],
+      value:[1.5, 20, 12],
       step: .25
     },
     seaPlaneRot: {
-      value: [.55, 5.2, 1],
+      value: [-.6, -1, -.2],
       step: .05
     }
   })
@@ -28,15 +33,18 @@ export default function SeaPlane({
       <mesh position={seaPlanePos} rotation={seaPlaneRot}>
         <primitive
           object={seaPlane.scene}
-          scale={0.02}
+          scale={1}
         />
         <InfoMark
-          infoPosition={[ -1.5, 2.5, -.75 ]}
+          infoPosition={[ 2, 0, 0 ]}
           setCardIsVisible={setCardIsVisible}
           content={<PlaneCard />}
           setContent={setContent}
           setInfoIsVisible={setInfoIsVisible}
           infoIsVisible={infoIsVisible}
+          setOrbitIsOn={setOrbitIsOn}
+          setCamPosition={setCamPosition}
+          cam={planeCam}
           />
       </mesh>
     </>

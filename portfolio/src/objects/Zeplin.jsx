@@ -3,10 +3,10 @@ import { useControls } from 'leva';
 
 export default function Zeplin() {
 
-  const zeplin = useGLTF("./3d-models/zeplin/scene.gltf")
+  const zeplin = useGLTF("./3d-models/island-scene.glb")
   const { zeplinPos, zeplinRot } = useControls({
     zeplinPos: {
-      value:[-7.5, 26.90, -15.2],
+      value:[0, 0, 0],
       step: .25
     },
     zeplinRot: {
@@ -20,7 +20,7 @@ export default function Zeplin() {
       <mesh position={zeplinPos} rotation={zeplinRot}>
         <primitive
           object={zeplin.scene}
-          scale={1.5}
+          scale={1}
         />
       </mesh>
     </>

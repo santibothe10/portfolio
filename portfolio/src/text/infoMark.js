@@ -6,10 +6,15 @@ export default function InfoMark({
   setContent,
   content,
   setInfoIsVisible,
-  infoIsVisible
+  infoIsVisible,
+  setOrbitIsOn,
+  setCamPosition,
+  cam
 }) {
 
   const clickInfoMark = () => {
+    setCamPosition(cam)
+    setOrbitIsOn(false)
     setCardIsVisible(true)
     setInfoIsVisible(false)
     setContent(content)
@@ -20,17 +25,19 @@ export default function InfoMark({
     <>
       {infoIsVisible && <Html
           position={ infoPosition }
-          center
-          distanceFactor={ 10 }
+          distanceFactor={ 4 }
           occlude
+          transform
+          sprite
           zIndexRange={[0, 0]}
         >
+            {/* classes were slate-100 ring-2 ring-black ring-inset */}
             <span onClick={clickInfoMark}
             className="flex w-20 h-20 md:w-24 md:h-24
-            rounded-3xl ring-4 ring-slate-100 ring-inset
+            rounded-3xl
             justify-center content-center hover:scale-110
-            cursor-pointer opacity-60 hover:opacity-100
-            bg-gradient-to-r from-pink-400 via-red-400 to-yellow-400
+            cursor-pointer opacity-80 hover:opacity-100
+            bg-gradient-to-r to-cyan-400 from-teal-400
             flex-col items-center animate-marka"
             >
               <svg
@@ -39,7 +46,8 @@ export default function InfoMark({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-20 h-20 text-slate-100">
+                // slate 100
+                className="w-20 h-20 text-black">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

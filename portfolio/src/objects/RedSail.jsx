@@ -8,17 +8,22 @@ export default function RedSail({
   setCardIsVisible,
   setContent,
   setInfoIsVisible,
-  infoIsVisible
+  infoIsVisible,
+  setOrbitIsOn,
+  setCamPosition
 }) {
 
-  const redSail = useGLTF("./3d-models/red-sail/scene.gltf")
+  const redSail = useGLTF("./3d-models/boat.glb")
+
+  const sailCam = {x: 26.01, y: -1.96, z: -25.23}
+
   const { redSailPos, redSailRot } = useControls({
     redSailPos: {
-      value:[18.25, -3.75, -19],
+      value:[16.25, 1, -8.25],
       step: .25
     },
     redSailRot: {
-      value: [0, -2.35, -0.05],
+      value: [0, -3.05, 0],
       step: .05
     }
   })
@@ -28,16 +33,19 @@ export default function RedSail({
       <mesh position={redSailPos} rotation={redSailRot}>
         <primitive
           object={redSail.scene}
-          scale={0.015}
-          dispose={null}
+          scale={1}
+          color="red"
         />
         <InfoMark
-          infoPosition={[ -1.5, 2.5, -.75 ]}
+          infoPosition={[ 4, -.5, 8.25 ]}
           setCardIsVisible={setCardIsVisible}
           content={<SailCard />}
           setContent={setContent}
           setInfoIsVisible={setInfoIsVisible}
           infoIsVisible={infoIsVisible}
+          setOrbitIsOn={setOrbitIsOn}
+          setCamPosition={setCamPosition}
+          cam={sailCam}
           />
       </mesh>
     </>

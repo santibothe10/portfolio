@@ -1,9 +1,10 @@
 import { useGLTF } from '@react-three/drei'
+import { Scene } from 'three'
 
 
-export default function TropIsland() {
+export default function IslandScene() {
 
-  const island = useGLTF("./3d-models/island.gltf")
+  const island = useGLTF("./3d-models/island-scene.glb")
 
   return (
     <>
@@ -11,7 +12,7 @@ export default function TropIsland() {
       <primitive
         object={island.scene}
         scale={1}
-        position={[0,-5,0]}/>
+        position={[0,0,0]}/>
     </mesh>
     </>
   )
