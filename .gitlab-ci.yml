@@ -1,14 +1,13 @@
 build-front-end-job:
   stage: build
   image: node:lts-bullseye
-  needs:
-    - lint-test-job
+
 
   script:
-    - cd ghi
+    - cd portfolio
     - npm install
     - npm run build
     - cp build/index.html build/404.html
   artifacts:
     paths:
-      - ghi/build/
+      - portfolio/build/
