@@ -1,9 +1,9 @@
 import { useGLTF, Html } from "@react-three/drei";
 import { useControls } from "leva";
-import InfoMark from "../text/infoMark";
+import InfoMark from "../text/infoMark.js";
 
-import HoloCard from "../text/HoloCard";
-import StartBoard from "../text/html-projects/StartBoard";
+import HoloCard from "../text/HoloCard.js";
+import StartBoard from "../text/html-projects/StartBoard.js";
 
 export default function Hologram({
   setCardIsVisible,
