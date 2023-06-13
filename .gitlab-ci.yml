@@ -1,8 +1,6 @@
-build-front-end-job:
+build:
   stage: build
   image: node:lts-bullseye
-
-
   script:
     - cd portfolio
     - npm install
