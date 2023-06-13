@@ -1,4 +1,4 @@
-import { OrbitControls, Stars, Sparkles, Html } from '@react-three/drei'
+import { OrbitControls, Stars, Sparkles } from '@react-three/drei'
 import { useState, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
